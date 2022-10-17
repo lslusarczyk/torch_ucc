@@ -908,6 +908,11 @@ c10::intrusive_ptr<ProcessGroup::Work> ProcessGroupUCC::recvAnysource(
   return comm->enqueue_p2p(OpType::RECVANYSOURCE, request, "ucc:recv");
 }
 
+const std::string ProcessGroupUCC::getBackendName() const
+{
+    return "ucc";
+}
+
 c10::intrusive_ptr<ProcessGroup> ProcessGroupUCC::createProcessGroupUCC(
     const c10::intrusive_ptr<::c10d::Store>& store,
     int rank,

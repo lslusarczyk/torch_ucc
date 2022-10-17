@@ -269,6 +269,8 @@ class ProcessGroupUCC : public ProcessGroup {
       std::vector<at::Tensor>& tensors,
       int tag) override;
 
+  virtual const std::string getBackendName() const;
+
   static c10::intrusive_ptr<ProcessGroup> createProcessGroupUCC(
       const c10::intrusive_ptr<::c10d::Store>& store,
       int rank,
